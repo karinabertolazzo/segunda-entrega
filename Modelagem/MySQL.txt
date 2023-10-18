@@ -1,0 +1,53 @@
+create database bertolazzoilhas;
+
+use bertolazzoilhas;
+
+
+create table 
+Cliente (
+idCliente int auto_increment primary key,
+nomeCliente varchar (50) not null,
+cpfCliente varchar (11) unique not null,
+enderecoCliente varchar (50) not null,
+telefoneCliente varchar (9) not null,
+emailCliente varchar (20) not null,
+senhaCliente varchar (20) not null
+);
+
+create table 
+Compras (
+idCompras int auto_increment primary key,
+tipoCompras varchar (10) not null,
+quantidadeCompras int not null,
+dataCompras datetime not null,
+valorTotalCompras decimal (10) not null,
+statusCompras varchar (10) not null,
+idUsuario int not null,
+idDestino int not null,
+foreign key (idCliente) references Cliente (idCliente),
+foreign key (idDestino) references Destino (idDestino) 
+);
+
+
+create table
+
+Destino (
+idDestino int auto_increment primary key,
+valorPromocionalDestino decimal (10) not null,
+promocoesDestino int not null,
+nomeDestino varchar (30) not null,
+valorDestino decimal (10) not null,
+foto varchar (100) not null,
+descricao varchar (100) not null
+);
+
+
+SELECT * FROM bertolazzoilhas;
+SELECT * FROM bertolazzoilhas.destino;
+SELECT * FROM bertolazzoilhas.Cliente;
+SELECT * FROM bertolazzoilhas.compras;
+SELECT * FROM cliente WHERE nomeCliente = 'bruna';
+SELECT * FROM cliente;
+
+
+
